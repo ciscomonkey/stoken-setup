@@ -49,19 +49,6 @@ This is only if you required a password to decrypt the token during import.  Thi
 1. Set the password to the new password you used during the token import in the previous step.
 1. Click Add
 
-### Test and authorize security to access keychain password
-
-Open a terminal and type the following:
-
-```shell
-$ security -q find-generic-password -gl rsapassword
-```
-
-Substitute ```rsapassword``` with whatever name you used in the previous step if you have multiple RSA Passwords.
-
-If prompted for your password, make sure to click the **Always Allow** button.  If you didn't, just run the command again.
-
-
 ### Add your PIN to keychain
 
 1. Open the keychain.app
@@ -72,7 +59,7 @@ If prompted for your password, make sure to click the **Always Allow** button.  
 1. Set the Password to your RSA PIN
 1. Click Add
 
-### Test and authorize security to access keychain PIN
+### Test and authorize security to access keychain
 
 Open a terminal and type the following:
 
@@ -80,7 +67,11 @@ Open a terminal and type the following:
 $ security -q find-generic-password -gl rsatoken
 ```
 
-Substitute ```rsatoken``` with whatever name you used in the previous step if you have multiple RSA PINs.
+Substitute ```rsatoken``` with whatever name you used in the previous step if you have multiple RSA PINs.  You will use ```rsapassword``` if you are using passwords instead of PIN to access your token:
+
+```shell
+$ security -q find-generic-password -gl rsapassword
+```
 
 If prompted for your password, make sure to click the **Always Allow** button.  If you didn't, just run the command again.
 
