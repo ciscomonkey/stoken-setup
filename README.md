@@ -1,8 +1,10 @@
 # stoken setup
 
-On my Mac, I use RSA SecurID for everything, but use stoken as I have had multiple issues with the SecurID Mac Client.
+I use RSA SecurID for everything, but have had consistent issues with the native Mac SecurID client.  I decided to switch to [stoken](https://github.com/cernekee/stoken) and this is my setup.
 
-I have 2 different RSA tokens assigned to me for different functions.  To use multiple tokens, you simply need to create multiple ~/.stokenrc files. (Import token and copy the rc file to another name such as ~/.stokenrc-func1 and ~/.stokenrc-func2.)  You can leave the "default" token you use in the ~/.stokenrc file using this setup.
+#### Note on multiple RSA tokens
+
+I have 2 different RSA tokens that I use depending on the functions I'm performing at the time.  To use multiple tokens with stoken you simply need to use multiple rc files.  For my setup, I use ```~/.stokenrc-[function]``` to name them, then use the ```--rcfile [fielname]``` parameter.  I leave the "default" token (the one I use the most) configured in ```~/.stokenrc```.
 
 ## Setup
 
@@ -38,6 +40,7 @@ Confirm new password: [Press Enter]
 1. Open the keychain.app
 1. Create a new entry by pressing the + button on the bottom of the window.
 1. Set Keychain Item Name to "rsatoken"
+   1. If using multiple tokens that require PIN, then you should use an identifier for it such as "rsatoken-[function]" or "rsatoken-[org]" etc.  You will need to set this in the variables of the Applescript below.
 1. Set Account Name to your AD User ID
 1. Set the Password to your RSA PIN
 1. Click Add
@@ -50,13 +53,16 @@ Open a terminal and type the following:
 $ security -q find-generic-password -gl rsatoken
 ```
 
+Substitute ```rsatoken``` with whatever name you used in the previous step if you have multiple RSA PINs.
+
 If prompted for your password, make sure to click the **Always Allow** button.  If you didn't, just run the command again.
 
 ### Install the script
 
 1. Open the appropriate script based on if you are required to enter a pin or not.
-1. Edit the rcFile variable if required
+1. Edit the ```rcFile``` variable if required.
    1. For mine, I have ```~/.stokenrc-func1``` and ```~/.stokenrc-func2``` that I use.
+1. Edit the ```keychainPIN``` variable if required.
 1. Save the script to the ```~/Library/Scripts/``` folder.
    1. I name mine ```SecurID - [Func].scpt``` to describe which area the token is for.
 
@@ -73,3 +79,4 @@ Simply click on the Scripts Icon in the Menu bar and select the script you want 
 ## TODO
 
 * Add support for next pin option
+
