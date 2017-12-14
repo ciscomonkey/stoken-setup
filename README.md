@@ -57,7 +57,7 @@ Open a terminal and type the following:
 $ security -q find-generic-password -gl rsapassword
 ```
 
-Substitute ```rsapassword``` with whatever name you used in the previous step if you have multiple RSA PINs.
+Substitute ```rsapassword``` with whatever name you used in the previous step if you have multiple RSA Passwords.
 
 If prompted for your password, make sure to click the **Always Allow** button.  If you didn't, just run the command again.
 
@@ -86,7 +86,7 @@ If prompted for your password, make sure to click the **Always Allow** button.  
 
 ### Install the script
 
-1. Open the appropriate script based on if you are required to enter a pin or not.
+1. Open the appropriate script based on if you are required to enter a pin or password.  If you read the instructions above, you should understand why you should not be using the no pin or password script.
 1. Edit the ```rcFile``` variable if required.
    1. For mine, I have ```~/.stokenrc-func1``` and ```~/.stokenrc-func2``` that I use.
 1. Edit the ```keychainPIN``` variable if required.
