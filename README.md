@@ -80,7 +80,7 @@ If prompted for your password, make sure to click the **Always Allow** button.  
 1. Open the appropriate script based on if you are required to enter a pin or password.  If you read the instructions above, you should understand why you should not be using the no pin or password script.
 1. Edit the ```rcFile``` variable if required.
    1. For mine, I have ```~/.stokenrc-func1``` and ```~/.stokenrc-func2``` that I use.
-1. Edit the ```keychainPIN``` variable if required.
+1. Edit the ```keychainPIN``` or ```keychainPW``` variable if required.
 1. Save the script to the ```~/Library/Scripts/``` folder.
    1. I name mine ```SecurID - [Func].scpt``` to describe which area the token is for.
 
