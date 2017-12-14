@@ -29,11 +29,38 @@ If you are required to use a password to decrypt the token it will look like thi
 ```shell
 $ stoken import --file filename.stdid
 Enter password to decrypt token: [Enter password provided by administrator]
-Enter new password: [Press Enter]
-Confirm new password: [Press Enter]
+Enter new password: [Enter new password]
+Confirm new password: [Enter new password]
 ```
 
+I know security can get annoying for users, but for the sake of your security **DO NOT LEAVE YOUR NEW PASSWORD BLANK**. If nothing else, set it to your PIN. If you leave it blank, and someone gets your ```~/.stokenrc``` file all they need to do is figure out your PIN and they can use it themselves.
+
 **Note:** If you are using multiple tokens, this is where you should copy ```~/.stokenrc``` to ```~/.stokenrc-[function/org]```.
+
+### Add your password to keychain
+
+This is only if you required a password to decrypt the token during import.  This typically means that you are not prompted for a PIN to retrieve your token.  
+
+1. Open the keychain.app
+1. Create a new entry by pressing the + button on the bottom of the window.
+1. Set Keychain Item Name to "rsapassword"
+   1. If using multiple tokens that require PIN, then you should use an identifier for it such as "rsapassword-[function]" or "rsapassword-[org]" etc.  You will need to set this in the variables of the Applescript below.
+1. Set Account Name to your AD User ID
+1. Set the password to the new password you used during the token import in the previous step.
+1. Click Add
+
+### Test and authorize security to access keychain password
+
+Open a terminal and type the following:
+
+```shell
+$ security -q find-generic-password -gl rsapassword
+```
+
+Substitute ```rsapassword``` with whatever name you used in the previous step if you have multiple RSA PINs.
+
+If prompted for your password, make sure to click the **Always Allow** button.  If you didn't, just run the command again.
+
 
 ### Add your PIN to keychain
 
