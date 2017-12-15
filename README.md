@@ -4,7 +4,7 @@ I use RSA SecurID for everything, but have had consistent issues with the native
 
 #### Note on multiple RSA tokens
 
-I have 2 different RSA tokens that I use depending on the functions I'm performing at the time.  To use multiple tokens with stoken you simply need to use multiple rc files.  For my setup, I use ```~/.stokenrc-[function]``` to name them, then use the ```--rcfile [fielname]``` parameter.  I leave the "default" token (the one I use the most) configured in ```~/.stokenrc```.
+I have 2 different RSA tokens that I use depending on the functions I'm performing at the time.  To use multiple tokens with stoken you simply need to use multiple rc files.  For my setup, I use ```~/.stokenrc-[function]``` to name them, then use the ```--rcfile [filename]``` parameter.  I leave the "default" token (the one I use the most) configured in ```~/.stokenrc```.
 
 ## Setup
 
