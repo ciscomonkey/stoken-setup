@@ -1,6 +1,6 @@
 # stoken setup
 
-I use RSA SecurID for everything, but have had consistent issues with the native Mac SecurID client.  I decided to switch to [stoken](https://github.com/cernekee/stoken) and this ~~is~~was my setup.
+I use RSA SecurID for everything, but have had consistent issues with the native Mac SecurID client.  I decided to switch to [stoken](https://github.com/cernekee/stoken) and this was an excercise to see if I could replace the missing gui on Mac.
 
 #### Note on multiple RSA tokens
 
