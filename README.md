@@ -1,6 +1,6 @@
 # stoken setup
 
-I use RSA SecurID for everything, but have had consistent issues with the native Mac SecurID client.  I decided to switch to [stoken](https://github.com/cernekee/stoken) and this is my setup.
+I use RSA SecurID for everything, but have had consistent issues with the native Mac SecurID client.  I decided to switch to [stoken](https://github.com/cernekee/stoken) and this ~~is~~was my setup.
 
 #### Note on multiple RSA tokens
 
@@ -33,9 +33,15 @@ Enter new password: [Enter new password]
 Confirm new password: [Enter new password]
 ```
 
-I know security can get annoying for users, but for the sake of your security **DO NOT LEAVE YOUR NEW PASSWORD BLANK**. If nothing else, set it to your PIN. If you leave it blank, and someone gets your ```~/.stokenrc``` file all they need to do is figure out your PIN and they can use it themselves.
+I know security can get annoying for users, but for the sake of your security **DO NOT LEAVE YOUR NEW PASSWORD BLANK**. If nothing else, set a PIN style password - **DO NOT USE YOUR RSA PIN**. If you leave it blank, and someone gets your ```~/.stokenrc``` file they can use it themselves.
 
 **Note:** If you are using multiple tokens, this is where you should copy ```~/.stokenrc``` to ```~/.stokenrc-[function/org]```.
+
+### Scripts
+
+The apple scripts are just examples of how to retrieve a PIN from your token.  It assumes you have set a password or PIN on your token (these should be completely different from any real username/password/pin and applied only for the token) and can retrieve this from keychain.  These should not be used to circumvent your security, they were written as an exercise to see if I could replace the missing gui feature on the RSA client and the stoken-gui which is not on Mac.
+
+**BASICALLY** you shouldn't do anything below outside of a lab.
 
 ### Add your password to keychain
 
@@ -89,12 +95,4 @@ If prompted for your password, make sure to click the **Always Allow** button.  
 1. Open the Script Editor
 1. Click **Script Editor** > **Preferences**
 1. On the General Tab, select **Show Script menu in menu bar**
-
-## Using
-
-Simply click on the Scripts Icon in the Menu bar and select the script you want to use.  You'll get a notification with the current code and it will be copied to the clipboard.
-
-## TODO
-
-* Add support for next pin option
 
